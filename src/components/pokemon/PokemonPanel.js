@@ -8,18 +8,24 @@ import Pokemon from './Pokemon'
 // Constants
 import Constants from '../Constants'
 
+
 class PokemonPanel extends Component {
 	constructor(props) {
 		super(props)
 
+		// initialize Constants
+		this.allConstants = new Constants()
+
 		// initial state
 		this.state = {
 			pokemons: [],
-			pokemonsOrig: []
+			pokemonsOrig: [],
+			startIndex: 0,
+			total: 0
 		}
 
-		// initialize Constants
-		this.allConstants = new Constants()
+		this.updatePokemons = this.updatePokemons.bind(this)
+
 	}
 
 	componentDidMount() {
@@ -91,7 +97,10 @@ class PokemonPanel extends Component {
 		let promises = []
 		let { allConstants } = this
 
-		for (let i = 1; i < 10; i++) {
+		let { startIndex } = this.state
+		startIndex = startIndex + 1
+		let endIndex = startIndex + allConstants.PERMISSIBLE_PAGINATION_LIMIT
+		for (let i = startIndex; i <= endIndex; i++) {
 			promises.push(
 				axios({
 					method: allConstants.METHODS.GET,
@@ -115,9 +124,9 @@ class PokemonPanel extends Component {
 	formatPokemonInfo(response, modifyOrig) {
 		let pokemons = []
 		console.log('Response received', response)
-		response.forEach((ele) => {
-			let { name, id, height, weight, stats, types } = (ele.data) ?  ele.data : ele.pokemon
-			
+		response.forEach((ele, index) => {
+			let { name, id, height, weight, stats, types } = (ele.data) ? ele.data : ele.pokemon
+
 			// set pokemon types
 			let pokemonTypes = ''
 			if (types) {
@@ -138,25 +147,54 @@ class PokemonPanel extends Component {
 			}
 
 			pokemons.push({
-				name, id, height, weight, types: pokemonTypes, stats: pokemonStats
+				name,
+				id: (id) ? id : index,
+				height,
+				weight,
+				types: pokemonTypes,
+				stats: pokemonStats
 			})
 		})
 
 		if (modifyOrig == true) {
-			this.setState({ pokemons, pokemonsOrig: [...pokemons] }, () => {
-				console.log('pokemons are now', this.state.pokemons)
-			})
+			this.setState((prevState) => ({
+				pokemons: [...prevState.pokemons, ...pokemons],
+				pokemonsOrig: [...prevState.pokemons, ...pokemons],
+				total: pokemons[pokemons.length - 1].id
+			}))
 
 		} else {
 			this.setState({ pokemons })
 		}
 	}
 
+	updatePokemons(event) {
+		let { id: type } = event.target
+		console.log("code reached...", type)
+
+		let { startIndex } = this.state
+		if (type == "right") {
+			this.setState({
+				startIndex: startIndex + this.allConstants.PERMISSIBLE_PAGINATION_LIMIT + 1
+			}, () => {
+				this.getPokemons()
+			})
+		} else {
+			this.setState({
+				startIndex: (startIndex < 0) ? 0 : startIndex - this.allConstants.PERMISSIBLE_PAGINATION_LIMIT + 1
+			}, () => {
+				this.getPokemons()
+			})
+		}
+	}
+
 	// render 
 	render() {
-		let { pokemons } = this.state
+		let { pokemons, startIndex } = this.state
+		pokemons = pokemons.slice(startIndex, startIndex + this.allConstants.PERMISSIBLE_PAGINATION_LIMIT)
 		return (
 			<div className="pokemon-panel">
+				<Navigation updatePokemons={this.updatePokemons} position={"left"} />
 				{
 					pokemons.map((pokemon) => {
 						return (
@@ -164,6 +202,7 @@ class PokemonPanel extends Component {
 						)
 					})
 				}
+				<Navigation updatePokemons={this.updatePokemons} position={"right"} />
 			</div>
 		);
 	}

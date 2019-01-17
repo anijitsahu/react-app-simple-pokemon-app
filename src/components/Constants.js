@@ -1,5 +1,6 @@
 class Constants {
 	constructor() {
+		this.PERMISSIBLE_PAGINATION_LIMIT = 9
 
 		// URLs
 		this.BASE_URL = "https://pokeapi.co/api/v2"
@@ -9,7 +10,7 @@ class Constants {
 
 		// Content-type
 		this.HEADER = {
-			"Content-Type": "application/json"		
+			"Content-Type": "application/json"
 		}
 
 		// HTTP verbs
