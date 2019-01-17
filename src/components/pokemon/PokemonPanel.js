@@ -123,7 +123,6 @@ class PokemonPanel extends Component {
 
 	formatPokemonInfo(response, modifyOrig) {
 		let pokemons = []
-		console.log('Response received', response)
 		response.forEach((ele, index) => {
 			let { name, id, height, weight, stats, types } = (ele.data) ? ele.data : ele.pokemon
 
@@ -177,13 +176,14 @@ class PokemonPanel extends Component {
 			this.setState({
 				startIndex: startIndex + this.allConstants.PERMISSIBLE_PAGINATION_LIMIT + 1
 			}, () => {
+				console.log('State is updated', this.state)
 				this.getPokemons()
 			})
 		} else {
 			this.setState({
-				startIndex: (startIndex < 0) ? 0 : startIndex - this.allConstants.PERMISSIBLE_PAGINATION_LIMIT + 1
+				startIndex: ((startIndex - this.allConstants.PERMISSIBLE_PAGINATION_LIMIT) < 0) ? 0 : startIndex - this.allConstants.PERMISSIBLE_PAGINATION_LIMIT - 1
 			}, () => {
-				this.getPokemons()
+				console.log('State is updated', this.state)
 			})
 		}
 	}
