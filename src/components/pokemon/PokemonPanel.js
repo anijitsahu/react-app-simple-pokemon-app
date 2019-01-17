@@ -194,7 +194,7 @@ class PokemonPanel extends Component {
 		pokemons = pokemons.slice(startIndex, startIndex + this.allConstants.PERMISSIBLE_PAGINATION_LIMIT)
 		return (
 			<div className="pokemon-panel">
-				<Navigation updatePokemons={this.updatePokemons} position={"left"} />
+				{(startIndex != 0) ? <Navigation updatePokemons={this.updatePokemons} position={"left"} /> : null}
 				{
 					pokemons.map((pokemon) => {
 						return (
