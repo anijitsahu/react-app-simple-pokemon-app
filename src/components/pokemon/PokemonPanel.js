@@ -4,6 +4,7 @@ import axios from 'axios'
 // Components
 import Navigation from './Navigation'
 import Pokemon from './Pokemon'
+import Loading from '../search/Loading'
 
 // Constants
 import Constants from '../Constants'
@@ -23,6 +24,8 @@ class PokemonPanel extends Component {
 			startIndex: 0,
 			total: 0,
 			startOrig: 0,
+			searchResults: false,
+			showLoading: false
 		}
 
 		this.updatePokemons = this.updatePokemons.bind(this)
@@ -56,6 +59,11 @@ class PokemonPanel extends Component {
 		} else {
 			this.setState({ pokemons, startIndex: 0, total: pokemons.length }, () => {
 				console.log('Filtered pokemons are', this.state)
+				if (searchText == "") {
+					this.setState({ searchResults: false })
+				} else {
+					this.setState({ searchResults: true })
+				}
 			})
 		}
 	}
@@ -63,7 +71,7 @@ class PokemonPanel extends Component {
 	// get indiv pokemon by name / type
 	getIndivPokemon(searchText) {
 		let { allConstants } = this
-
+		this.setState({ showLoading: true })
 		axios({
 			method: allConstants.METHODS.GET,
 			url: allConstants.POKEMON_INDIV_URL.replace('{id}', searchText),
@@ -71,6 +79,7 @@ class PokemonPanel extends Component {
 		})
 			.then((response) => {
 				console.log('response for Search', response)
+				this.setState({ searchResults: true, showLoading: false })
 				this.formatPokemonInfo([response], false)
 			})
 			.catch((error) => {
@@ -157,7 +166,7 @@ class PokemonPanel extends Component {
 	updatePokemons(event) {
 		let { id: type } = event.target
 
-		let { startIndex, total } = this.state
+		let { startIndex, total, searchResults } = this.state
 		console.log("Start and total are : ", startIndex, ' and ', total)
 
 		if (type == "right") {
@@ -167,7 +176,7 @@ class PokemonPanel extends Component {
 				console.log('State is updated', this.state)
 
 				// if it reaches at the end load more pokemons
-				if (this.state.startIndex + this.allConstants.PERMISSIBLE_PAGINATION_LIMIT > total) {
+				if (searchResults == false && (this.state.startIndex + this.allConstants.PERMISSIBLE_PAGINATION_LIMIT > total)) {
 					this.getPokemons()
 				}
 			})
@@ -182,20 +191,31 @@ class PokemonPanel extends Component {
 
 	// render 
 	render() {
-		let { pokemons, startIndex } = this.state
+		let { pokemons, startIndex, searchResults, total, showLoading } = this.state
 		pokemons = pokemons.slice(startIndex, startIndex + this.allConstants.PERMISSIBLE_PAGINATION_LIMIT)
+		let showRightButton = false
+
+		// condition to show the right button
+		if (searchResults == false && pokemons.length > 0) {
+			showRightButton = true
+		} else if (searchResults == true && total > this.allConstants.PERMISSIBLE_PAGINATION_LIMIT) {
+			showRightButton = true
+		}
+
 		return (
 			<div className="pokemon-panel">
 				{(startIndex != 0 && pokemons.length > 0) ? <Navigation updatePokemons={this.updatePokemons} position={"left"} /> : null}
 
 				{
-					pokemons.map((pokemon) => {
-						return (
-							<Pokemon key={pokemon.id} {...pokemon} />
-						)
-					})
+					(showLoading == true) ? <Loading />
+						:
+						pokemons.map((pokemon) => {
+							return (
+								<Pokemon key={pokemon.id} {...pokemon} />
+							)
+						})
 				}
-				{(pokemons.length > 0) ? <Navigation updatePokemons={this.updatePokemons} position={"right"} /> : null}
+				{(showRightButton == true) ? <Navigation updatePokemons={this.updatePokemons} position={"right"} /> : null}
 			</div>
 		);
 	}

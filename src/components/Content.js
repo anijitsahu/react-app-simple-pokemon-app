@@ -2,9 +2,10 @@
 import React, { Component } from 'react';
 import uuidv4 from 'uuid/v4';
 
+import Background from './eevee1.png'
 // Components
 import PokemonPanel from './pokemon/PokemonPanel'
-import SearchBar from './SearchBar'
+import SearchBar from './search/SearchBar'
 
 class Content extends Component {
   constructor(props) {
@@ -57,8 +58,9 @@ class Content extends Component {
 
   render() {
     let { active, total, searchText, searchId } = this.state
+    let style = { backgroundImage: `linear-gradient( rgba(211, 117, 232, 0.3), rgba(0,0,0,0.5) ),url(${Background})` }
     return (
-      <div className="content">
+      <div className="content" style={style}>
         <SearchBar
           handleChange={this.handleChange}
           handleKeyPress={this.handleKeyPress}
