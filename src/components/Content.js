@@ -48,7 +48,8 @@ class Content extends Component {
   }
 
   handleKeyPress(event) {
-    if (event.keyCode == 13 || event.which == 13) {
+    console.log('event here', event.target.id)
+    if (event.keyCode == 13 || event.which == 13 || event.target.id == "searchbutton") {
       console.log('search for pokemon ', this.state.searchText)
       this.setState({ searchId: uuidv4() })
     }
@@ -62,7 +63,7 @@ class Content extends Component {
           handleChange={this.handleChange}
           handleKeyPress={this.handleKeyPress}
           searchText={searchText} />
-        <PokemonPanel searchId={searchId} searchText={searchText}/>
+        <PokemonPanel searchId={searchId} searchText={searchText} />
       </div>
     );
   }

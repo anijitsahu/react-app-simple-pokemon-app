@@ -6,6 +6,7 @@ const SearchBar = (props) => {
 
 	return (
 		<div className="search-div">
+			<i className="fas fa-search search-icon" id="searchbutton" onClick={handleKeyPress}></i>
 			<input
 				type="text"
 				placeholder="Search by pokemon name or type"

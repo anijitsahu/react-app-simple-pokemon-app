@@ -51,6 +51,18 @@ html {
 /* Search bar related */
 .search-div {
   justify-self: center;
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  color: #aaa;
+  right: 0px;
+  padding: 1em;
+}
+
+.search-icon:hover {
+  cursor: pointer;
 }
 
 input[type="text"] {
@@ -62,7 +74,8 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-  background-color: #fff; 
+  background-color: #fff;
+  cursor: auto; 
 }
 
 input[type="text"]:hover {
