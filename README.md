@@ -1,4 +1,4 @@
-# react-app-simple-carousel-app
+# react-app-simple-pokemon-app
 A Simple Carousel Application using [React JS](https://reactjs.org/docs/getting-started.html), a JavaScript library to make awesome UI by Facebook and [HTML5](https://www.w3schools.com/html/html5_intro.asp), [CSS3](https://www.w3schools.com/css/).
 
 This application uses [React JS](https://reactjs.org/docs/getting-started.html) component oriented UI creation paradigm. All components are written in [JSX](https://reactjs.org/docs/jsx-in-depth.html) and ES6 style and are
@@ -12,10 +12,10 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
 
 
 ## Features
-- This is just a Simple Carousel program
-- Next image can be seen by clicking `>` button
+- This is just a Simple Pokemon Application
+- Next Pokemons can be seen by clicking `>` button
   - Next button will not be shown when the last image is reached
-- Previous image can be seen clicking `<` button
+- Previous Pokemons can be seen clicking `<` button
   - While loading the first image previous button will not be there for obvious reason 
   
  <br>
@@ -23,14 +23,14 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
   <li> This follows responsive web design paradigm </li>
   <li> Mobile view is supported </li>
   <li> No database / storage is there. So no changes are <i>persistant</i> </li>
-  <li> Images are served from the local file system. No <i>external</i> URLs are there </li>
+  <li> Pokemons are served from the <i>external</i> URL</li>
  </ul> 
 
 
 ## Installation
 
-1. Clone the repository using `git clone https://github.com/anijitsahu/react-app-simple-carousel-app.git` from `Git Bash / Command Prompt`
-2. Navigate inside the directory by `cd react-app-simple-carousel-app`
+1. Clone the repository using `git clone https://github.com/anijitsahu/react-app-simple-pokemon-app.git` from `Git Bash / Command Prompt`
+2. Navigate inside the directory by `cd react-app-simple-pokemon-app`
 3. Install all the necessary dependecies by using `npm install` (optional)
 4. Navigate to the directory `dist`
 5. Open `index.html` page in a web browser 

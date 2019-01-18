@@ -66,7 +66,7 @@ class PokemonPanel extends Component {
 
 		axios({
 			method: allConstants.METHODS.GET,
-			url: (modifyUrl == true) ? allConstants.TYPE_INDIV_URL.replace('{id}', searchText) : allConstants.POKEMON_INDIV_URL.replace('{id}', searchText),
+			url: allConstants.POKEMON_INDIV_URL.replace('{id}', searchText),
 			headers: allConstants.HEADER
 		})
 			.then((response) => {
@@ -150,15 +150,16 @@ class PokemonPanel extends Component {
 			}))
 
 		} else {
-			this.setState({ pokemons })
+			this.setState({ pokemons, startIndex: 0, total: pokemons.length })
 		}
 	}
 
 	updatePokemons(event) {
 		let { id: type } = event.target
-		console.log("code reached...", type)
 
 		let { startIndex, total } = this.state
+		console.log("Start and total are : ", startIndex, ' and ', total)
+
 		if (type == "right") {
 			this.setState({
 				startIndex: startIndex + this.allConstants.PERMISSIBLE_PAGINATION_LIMIT + 1,
