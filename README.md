@@ -68,13 +68,13 @@ Desktop as well as Mobile version of the screenshots are given side by side.
 </p>
 
 
-<p> No Match Found <br/> 
- <img src="screenshots/desktop 5.png" width="590px" title="No Match Found screen"/>
- <img src="screenshots/mobile 5.png" width="190px" title="No Match Found screen"/> 
+<p> Loading <br/> 
+ <img src="screenshots/desktop 5.png" width="590px" title="Loading screen"/>
+ <img src="screenshots/mobile 5.png" width="190px" title="Loading screen"/> 
 </p>
 
 
-<p> Loading <br/> 
- <img src="screenshots/desktop 6.png" width="590px" title="Loading screen"/>
- <img src="screenshots/mobile 6.png" width="190px" title="Loading screen"/> 
+<p> No Match Found <br/> 
+ <img src="screenshots/desktop 6.png" width="590px" title="No Match Found screen"/>
+ <img src="screenshots/mobile 6.png" width="190px" title="No Match Found screen"/> 
 </p>
