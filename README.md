@@ -16,7 +16,9 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
 - Next Pokemons can be seen by clicking `>` button
   - Next button will not be shown when the last image is reached
 - Previous Pokemons can be seen clicking `<` button
-  - While loading the first image previous button will not be there for obvious reason 
+  - While loading the first pokemon previous button will not be there for obvious reason 
+- Pokemons can be searched by `name` or `type`
+- When no matching pokemon found an message would be shown
   
  <br>
  <ul>
@@ -54,25 +56,25 @@ Desktop as well as Mobile version of the screenshots are given side by side.
  <img src="screenshots/mobile 2.png" width="190px" title="After clicking the next button screen"/> 
 </p>
 
-<p> Last image <br/> 
- <img src="screenshots/desktop 3.png" width="590px" title="Last image screen"/>
- <img src="screenshots/mobile 3.png" width="190px" title="Last image screen"/> 
+<p> Search Pokemon <br/> 
+ <img src="screenshots/desktop 3.png" width="590px" title="Search Pokemon screen"/>
+ <img src="screenshots/mobile 3.png" width="190px" title="Search Pokemon screen"/> 
 </p>
 
 
-<p> Last image <br/> 
- <img src="screenshots/desktop 4.png" width="590px" title="Last image screen"/>
- <img src="screenshots/mobile 4.png" width="190px" title="Last image screen"/> 
+<p> Pokemon Info <br/> 
+ <img src="screenshots/desktop 4.png" width="590px" title="Pokemon Info screen"/>
+ <img src="screenshots/mobile 4.png" width="190px" title="Pokemon Info screen"/> 
 </p>
 
 
-<p> Last image <br/> 
- <img src="screenshots/desktop 5.png" width="590px" title="Last image screen"/>
- <img src="screenshots/mobile 5.png" width="190px" title="Last image screen"/> 
+<p> No Match Found <br/> 
+ <img src="screenshots/desktop 5.png" width="590px" title="No Match Found screen"/>
+ <img src="screenshots/mobile 5.png" width="190px" title="No Match Found screen"/> 
 </p>
 
 
-<p> Last image <br/> 
- <img src="screenshots/desktop 6.png" width="590px" title="Last image screen"/>
- <img src="screenshots/mobile 6.png" width="190px" title="Last image screen"/> 
+<p> Loading <br/> 
+ <img src="screenshots/desktop 6.png" width="590px" title="Loading screen"/>
+ <img src="screenshots/mobile 6.png" width="190px" title="Loading screen"/> 
 </p>
