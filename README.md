@@ -36,3 +36,43 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
 5. Open `index.html` page in a web browser 
  
 *tested with <img src="screenshots/chrome.png" width="20px" title="Google Chrome">Google Chrome v70 and <img src="screenshots/firefox.png" width="25px" title="Firefox Developer edition">Mozilla Firefox Developer Editon*  
+
+
+## Screenshots
+
+Some screens of the application is given below for better understanding. 
+
+Desktop as well as Mobile version of the screenshots are given side by side.
+
+<p> Initial screen <br/> 
+ <img src="screenshots/desktop 1.png" width="590px" title="initial screen"/>
+ <img src="screenshots/mobile 1.png" width="190px" title="initial screen"/> 
+</p>
+
+<p> After clicking the next button <br/> 
+ <img src="screenshots/desktop 2.png" width="590px" title="After clicking the next button screen"/>
+ <img src="screenshots/mobile 2.png" width="190px" title="After clicking the next button screen"/> 
+</p>
+
+<p> Last image <br/> 
+ <img src="screenshots/desktop 3.png" width="590px" title="Last image screen"/>
+ <img src="screenshots/mobile 3.png" width="190px" title="Last image screen"/> 
+</p>
+
+
+<p> Last image <br/> 
+ <img src="screenshots/desktop 3.png" width="590px" title="Last image screen"/>
+ <img src="screenshots/mobile 3.png" width="190px" title="Last image screen"/> 
+</p>
+
+
+<p> Last image <br/> 
+ <img src="screenshots/desktop 3.png" width="590px" title="Last image screen"/>
+ <img src="screenshots/mobile 3.png" width="190px" title="Last image screen"/> 
+</p>
+
+
+<p> Last image <br/> 
+ <img src="screenshots/desktop 3.png" width="590px" title="Last image screen"/>
+ <img src="screenshots/mobile 3.png" width="190px" title="Last image screen"/> 
+</p>
