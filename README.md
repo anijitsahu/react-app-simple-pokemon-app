@@ -61,18 +61,18 @@ Desktop as well as Mobile version of the screenshots are given side by side.
 
 
 <p> Last image <br/> 
- <img src="screenshots/desktop 3.png" width="590px" title="Last image screen"/>
- <img src="screenshots/mobile 3.png" width="190px" title="Last image screen"/> 
+ <img src="screenshots/desktop 4.png" width="590px" title="Last image screen"/>
+ <img src="screenshots/mobile 4.png" width="190px" title="Last image screen"/> 
 </p>
 
 
 <p> Last image <br/> 
- <img src="screenshots/desktop 3.png" width="590px" title="Last image screen"/>
- <img src="screenshots/mobile 3.png" width="190px" title="Last image screen"/> 
+ <img src="screenshots/desktop 5.png" width="590px" title="Last image screen"/>
+ <img src="screenshots/mobile 5.png" width="190px" title="Last image screen"/> 
 </p>
 
 
 <p> Last image <br/> 
- <img src="screenshots/desktop 3.png" width="590px" title="Last image screen"/>
- <img src="screenshots/mobile 3.png" width="190px" title="Last image screen"/> 
+ <img src="screenshots/desktop 6.png" width="590px" title="Last image screen"/>
+ <img src="screenshots/mobile 6.png" width="190px" title="Last image screen"/> 
 </p>
