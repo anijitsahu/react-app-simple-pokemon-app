@@ -28,7 +28,7 @@ const Pokemon = (props) => {
 					{	
 						stats.map((ele)=> {
 							return(
-								<div key={`${id}-${ele}`} className="pokemon-info">
+								<div key={`${id}-${ele.name}`} className="pokemon-info">
 									<div className="info-type">{ele.name}</div>
 									<div className="info-desc">{ele.rank}</div>
 								</div>		

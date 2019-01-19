@@ -1,8 +1,8 @@
 import React from 'react';
 
 // components 
-import Title from './components/Title';
-import Content from './components/Content';
+import Title from './components/layout/Title';
+import Content from './components/layout/Content';
 import ErrorBoundary from './components/ErrorBoundary'
 
 // css

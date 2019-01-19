@@ -235,7 +235,11 @@ a {
   color: #dcd4d4;
 }
 
-
+/* Facebook button related */
+.facebook-button {
+  align-self: center;
+  justify-self: center;
+}
 
 /* media queries */
 @media screen and (max-width: 500px) {
