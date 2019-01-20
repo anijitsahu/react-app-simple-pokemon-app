@@ -93,7 +93,7 @@ class Content extends Component {
   }
 
   changeRating(favourites) {
-    console.log("code reaches Content", favourites)
+    // console.log("code reaches Content", favourites)
     this.setState({ favourites })
   }
 
@@ -139,6 +139,7 @@ class Content extends Component {
                         favId={favId}
                         searchText={searchText} 
                         favourites={favourites} 
+                        pokemons={pokemons}
                         updatePokemonsList={this.updatePokemonsList}
                         changeRating={this.changeRating}/>
                     )}/>

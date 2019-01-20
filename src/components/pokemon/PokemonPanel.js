@@ -38,7 +38,12 @@ class PokemonPanel extends Component {
   }
 
   componentDidMount() {
-    this.getPokemons()
+    // optimize not to call the API again
+    if (this.props.pokemons) {
+      this.setState({ pokemons: this.props.pokemons, pokemonsOrig: this.props.pokemons, total: this.props.pokemons.length })
+    } else {
+      this.getPokemons()
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -56,8 +61,9 @@ class PokemonPanel extends Component {
 
   // search / filter
   searchAndFilterPokemons(searchText) {
-    console.log('Code reached', searchText)
+    console.log('Search text in PokemonPanel>>', searchText, " and state ", this.state)
     let pokemons = [...this.state.pokemonsOrig]
+    console.log("PokemonPanel: pokemons are", pokemons)
 
     pokemons = pokemons.filter((ele) => {
       return ele.name.includes(searchText) || ele.types.includes(searchText)
@@ -210,7 +216,7 @@ class PokemonPanel extends Component {
     let { id } = event.target
     let { favourites, changeRating } = this.props
     id = parseInt(id)
-    console.log('Rating to be changed for', id)
+    // console.log('Rating to be changed for', id)
     let index = favourites.indexOf(id)
     if (index > -1) {
       favourites.splice(index, 1)
