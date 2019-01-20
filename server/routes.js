@@ -13,7 +13,8 @@ router.use(cors())
 router.use(morgan('dev'))
 router.use(bodyParser.json({ type: 'application/json' }))
 
-router.post('/getfavourites/:id', (req, res) => {
+router.post('/getfavourites/', (req, res) => {
+	console.log("Code reache...")
   dbOps.connectDbAndRunQueries("getFavourites", req, res)
 })
 

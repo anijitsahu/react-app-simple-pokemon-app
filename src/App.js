@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom'
 
 // components 
 import Title from './components/layout/Title';
@@ -10,13 +11,15 @@ import './css/style.css'
 
 const App = () => {
   return (
-    <ErrorBoundary>
-	    <div className="container">
-	    	{ /* including the Title as well as Content components */ }
-		  		<Title />
-		  		<Content />	
-	  	</div>
-		</ErrorBoundary>
+  	<BrowserRouter>
+	    <ErrorBoundary>
+		    <div className="container">
+		    	{ /* including the Title as well as Content components */ }
+			  		<Title />
+			  		<Content />	
+		  	</div>
+			</ErrorBoundary>
+		</BrowserRouter>
   );
 };
 

@@ -2,9 +2,13 @@ import React from 'react';
 
 
 const Pokemon = (props) => {
-  let { name, id, height, weight, types, stats } = props
+
+  let { name, id, height, weight, types, stats, favourites, changeRating } = props
+  let starStyle = (favourites.indexOf(id) >-1) ? "fas fa-star active star-icon" : "fas fa-star star-icon"
+  
   return (
     <div className="pokemon-div" name={`${id}-${name}`}>
+    	<i className={starStyle} id={id} onClick={changeRating}></i>
 			<div className="pokemon-name">{name}</div>
 
 			{

@@ -44,28 +44,29 @@ let chooseApiAndSendResponse = (apiName, db, req, res, client, output) => {
 let makeGetFavourites = async (db, req, res, client, output) => {
   console.log('Function reached...', req.body)
   console.log('params..', req.params)
-  let {id:userId, name, email} = req.body
+  let { id: userId, name, email } = req.body
 
-  try {
+  // try {
 
-    // db call 
-    let data = await db.collection(COLLECTION_POKEMON_USERS)
-      .findAndModify({
-        query: { userId },
-        update: {
-          $setOnInsert: { userId, name, email}
-        },
-        new: true, // return new doc if one is upserted
-        upsert: true // insert the document if it does not exist
-      })
+  // db call 
+  //     let data = await db.collection(COLLECTION_POKEMON_USERS)
+  //       .findAndModify({
+  //         query: { userId },
+  //         update: {
+  //           $setOnInsert: { userId, name, email}
+  //         },
+  //         new: true, // return new doc if one is upserted
+  //         upsert: true // insert the document if it does not exist
+  //       })
+  // 
+  //     output = (data.length > 0) ? [...data] : []
+  output = []
+  sendOutputAndCloseConnection(client, output, res)
 
-    output = (data.length > 0) ? [...data] : []
-    sendOutputAndCloseConnection(client, output, res)
-
-  } catch (error) {
-    console.log('unable to get all the users', error)
-    sendOutputAndCloseConnection(client, output, res)
-  }
+  // } catch (error) {
+  //   console.log('unable to get all the users', error)
+  //   sendOutputAndCloseConnection(client, output, res)
+  // }
 }
 
 let makeSaveFavourites = async (db, req, res, client, output) => {

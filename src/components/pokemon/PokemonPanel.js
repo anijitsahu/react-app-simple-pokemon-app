@@ -28,10 +28,12 @@ class PokemonPanel extends Component {
       searchResults: false,
       showLoading: false,
       noResultText: "No match found",
-      showNoResult: false
+      showNoResult: false,
+      favourites: this.props.favourites
     }
 
     this.updatePokemons = this.updatePokemons.bind(this)
+    this.changeRating = this.changeRating.bind(this)
 
   }
 
@@ -44,6 +46,11 @@ class PokemonPanel extends Component {
     if (nextProps.searchId && (nextProps.searchId !== this.props.searchId)) {
       console.log('New search text received... perform the search')
       this.searchAndFilterPokemons(nextProps.searchText)
+    }
+
+    if (nextProps.favId !== this.props.favId) {
+      console.log("changed favourites")
+      this.setState({ favourites: nextProps.favourites })
     }
   }
 
@@ -158,11 +165,15 @@ class PokemonPanel extends Component {
     })
 
     if (modifyOrig == true) {
-      this.setState((prevState) => ({
-        pokemons: [...prevState.pokemons, ...pokemons],
-        pokemonsOrig: [...prevState.pokemons, ...pokemons],
+      this.setState({
+        pokemons: [...this.state.pokemons, ...pokemons],
+        pokemonsOrig: [...this.state.pokemons, ...pokemons],
         total: pokemons[pokemons.length - 1].id
-      }))
+      }, () => {
+
+        console.log('Send list to the Content ')
+        this.props.updatePokemonsList(this.state.pokemonsOrig)
+      })
 
     } else {
       this.setState({ pokemons, startIndex: 0, total: pokemons.length })
@@ -195,9 +206,24 @@ class PokemonPanel extends Component {
     }
   }
 
+  changeRating(event) {
+    let { id } = event.target
+    let { favourites, changeRating } = this.props
+    id = parseInt(id)
+    console.log('Rating to be changed for', id)
+    let index = favourites.indexOf(id)
+    if (index > -1) {
+      favourites.splice(index, 1)
+      changeRating(favourites)
+    } else {
+      favourites.push(parseInt(id))
+      changeRating(favourites)
+    }
+  }
+
   // render 
   render() {
-    let { pokemons, startIndex, searchResults, total, showLoading, showNoResult, noResultText } = this.state
+    let { pokemons, startIndex, searchResults, total, showLoading, showNoResult, noResultText, favourites } = this.state
     pokemons = pokemons.slice(startIndex, startIndex + this.allConstants.PERMISSIBLE_PAGINATION_LIMIT)
     let showRightButton = false
 
@@ -207,27 +233,27 @@ class PokemonPanel extends Component {
     } else if (searchResults == true && ((this.state.startIndex + this.allConstants.PERMISSIBLE_PAGINATION_LIMIT + 1) <= total)) {
       showRightButton = true
     }
-    
+
     if (showNoResult == true) {
       showRightButton = false
     }
 
     return (
       <div className="pokemon-panel">
-				{(startIndex != 0 && pokemons.length > 0) ? <Navigation updatePokemons={this.updatePokemons} position={"left"} /> : null}
-				{
-					(showLoading == true) ? <Loading />
-						:
-						(showNoResult == true) ? <NoResult msg={noResultText}/> 
-						:
-							pokemons.map((pokemon) => {
-								return (
-									<Pokemon key={pokemon.id} {...pokemon} />
-								)
-							})
-				}
-				{(showRightButton == true) ? <Navigation updatePokemons={this.updatePokemons} position={"right"} /> : null}
-			</div>
+        {(startIndex != 0 && pokemons.length > 0) ? <Navigation updatePokemons={this.updatePokemons} position={"left"} /> : null}
+        {
+          (showLoading == true) ? <Loading />
+            :
+            (showNoResult == true) ? <NoResult msg={noResultText}/> 
+            :
+              pokemons.map((pokemon) => {
+                return (
+                  <Pokemon key={pokemon.id} {...pokemon} favourites={favourites} changeRating={this.changeRating}/>
+                )
+              })
+        }
+        {(showRightButton == true) ? <Navigation updatePokemons={this.updatePokemons} position={"right"} /> : null}
+      </div>
     );
   }
 }

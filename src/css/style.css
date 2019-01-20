@@ -33,6 +33,7 @@ html {
   background-image: linear-gradient(rgba(211, 117, 232, 0.3), rgba(0, 0, 0, 0.5)), url(http://localhost:3000/images/eevee2.jpg);
   background-size: contain;
   background-repeat: no-repeat;
+  grid-template-rows: auto 1fr 3fr;
 }
 
 .italic {
@@ -83,13 +84,13 @@ input[type="text"]:hover {
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2em;
+  grid-gap: 1.5em;
 }
 
 .pokemon-div {
   display: grid;
   border: solid 1px #ddd;
-  padding: 1em;
+  padding: 0.8em;
   border-radius: 4px;
   grid-template-columns: 1fr;
 
@@ -100,7 +101,6 @@ input[type="text"]:hover {
 
 .pokemon-div:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
 }
 
 .pokemon-name {
@@ -129,9 +129,15 @@ input[type="text"]:hover {
   justify-self: end;
 }
 
+.info-icon:hover {
+  cursor: pointer;
+}
+
 .popover {
   position: relative;
   display: grid;
+  width: 10px;
+  justify-self: end;
 }
 
 .popover .popover-content {
@@ -165,9 +171,39 @@ input[type="text"]:hover {
   text-align: center;
 }
 
+/* Stars related */
+.star-icon {
+  justify-self: center;
+  color: #ddd;
+  font-size: 0.7em;
+}
+
+.star-icon:hover {
+  cursor: pointer;
+}
+
+.active {
+  color: #ab14ab;
+}
+
 /* all the anchor links */
+.links-div {
+  font-size: 0.7em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  justify-self: center;
+  padding: 0.7em;
+  text-transform: uppercase;
+}
+
+.active-link {
+  font-weight: bold;
+}
+
 a {
   text-decoration: none;
+  justify-self: center;
 }
 
 .arrow {
@@ -240,6 +276,7 @@ a {
 .facebook-button {
   align-self: center;
   justify-self: center;
+  grid-row: 1/4;
 }
 
 /* media queries */
