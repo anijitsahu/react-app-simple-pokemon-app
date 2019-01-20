@@ -18,7 +18,7 @@ router.post('/getfavourites/', (req, res) => {
   dbOps.connectDbAndRunQueries("getFavourites", req, res)
 })
 
-router.post('/savefavourites/:id', (req, res) => {
+router.post('/savefavourites/', (req, res) => {
   dbOps.connectDbAndRunQueries("saveFavourites", req, res)
 })
 

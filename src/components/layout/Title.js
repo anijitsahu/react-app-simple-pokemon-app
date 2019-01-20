@@ -1,10 +1,15 @@
 import React from 'react';
 
-const Title = () => {
+// components
+import UserGreeting from './UserGreeting'
+
+
+const Title = (props) => {
+  let { userInfo } = props
   return (
     <div className="title">
-	    <span className="caption">Simple <strong>pokemon application</strong>
-	    </span>
+	    <span className="caption">Simple <strong>pokemon application</strong></span>
+	    <UserGreeting username={userInfo.name}/>
     </div>
   );
 };

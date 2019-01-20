@@ -74,12 +74,12 @@ let makeSaveFavourites = async (db, req, res, client, output) => {
   try {
 
     // db call 
-    let data = await db
-      .collection(COLLECTION_RESTAURANTS)
-      .find(query)
-      .toArray()
-
-    output = (data.length > 0) ? [...data] : []
+    //     let data = await db
+    //       .collection(COLLECTION_RESTAURANTS)
+    //       .find(query)
+    //       .toArray()
+    // 
+    //     output = (data.length > 0) ? [...data] : []
     sendOutputAndCloseConnection(client, output, res)
 
   } catch (error) {

@@ -27,7 +27,7 @@ class FavouritePokemons extends Component {
       startIndex: 0,
       total: 0,
       favourites: this.props.favourites,
-      noResultText: "No match found in the Favourites",
+      noResultText: "Not Match Found",
       showNoResult: false,
       searchResults: false,
 
@@ -60,11 +60,13 @@ class FavouritePokemons extends Component {
 
     this.setState({ pokemons }, () => {
       // console.log("pokemons after the search", pokemons)
+      if (pokemons.length == 0) {
+        this.setState({ showNoResult: true }, () => {
+          console.log("State is now ,", this.state)
+        })
+      }
     })
 
-    if (pokemons.length == 0) {
-      this.setState({ showNoResult: true })
-    }
     if (searchText == "") {
       this.setState({ searchResults: false, showNoResult: false })
     } else {
@@ -102,7 +104,7 @@ class FavouritePokemons extends Component {
   // filter the pokemon to get only the fav ones
   formatFavourites(pokemons) {
     console.log('formatFavourites reached... ')
-    let { favourites } = this.props
+    let { favourites } = this.state
 
     pokemons = pokemons.filter((ele) => {
       return (favourites.indexOf(ele.id) > -1)
@@ -124,6 +126,10 @@ class FavouritePokemons extends Component {
       favourites.splice(index, 1)
     }
 
+    this.setState({ favourites }, () => {
+      let pokemons = this.formatFavourites(this.state.pokemons)
+      this.setState({ pokemons, pokemonsOrig: pokemons })
+    })
     this.props.changeRating(favourites)
   }
 

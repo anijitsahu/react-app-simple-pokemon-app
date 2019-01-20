@@ -77,6 +77,10 @@ class Content extends Component {
 
   getFavouritePokemons(userInfo) {
     let { allConstants } = this
+    this.setState({ userInfo }, () => {
+      this.props.sendUserInfo(userInfo)
+    })
+
     axios({
         method: allConstants.METHODS.POST,
         url: allConstants.GET_USER_FAV_POKEMON,
@@ -95,6 +99,24 @@ class Content extends Component {
   changeRating(favourites) {
     // console.log("code reaches Content", favourites)
     this.setState({ favourites })
+    this.saveRatingToDb()
+  }
+
+  saveRatingToDb() {
+    let { allConstants } = this
+    let { userInfo } = this.state
+    axios({
+        method: allConstants.METHODS.POST,
+        url: allConstants.SAVE_USER_FAVE_POKEMON,
+        header: allConstants.HEADER,
+        data: userInfo
+      })
+      .then((response) => {
+        console.log("rating saved successfully")
+      })
+      .catch((error) => {
+        console.log("Unable to save the rating")
+      })
   }
 
   updatePokemonsList(pokemons) {
