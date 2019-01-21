@@ -89,7 +89,7 @@ class Content extends Component {
     })
       .then((response) => {
         console.log('Response received', response)
-        this.setState({ favourites: [1, 4, 7], favId: uuidv4() })
+        this.setState({ favourites: response.data, favId: uuidv4() })
       })
       .catch((error) => {
         console.log('error occurred...', error)
@@ -98,18 +98,19 @@ class Content extends Component {
 
   changeRating(favourites) {
     // console.log("code reaches Content", favourites)
-    this.setState({ favourites })
-    this.saveRatingToDb()
+    this.setState({ favourites }, ()=>{
+      this.saveRatingToDb(favourites)
+    })
   }
 
-  saveRatingToDb() {
+  saveRatingToDb(favourites) {
     let { allConstants } = this
     let { userInfo } = this.state
     axios({
       method: allConstants.METHODS.POST,
       url: allConstants.SAVE_USER_FAVE_POKEMON,
       header: allConstants.HEADER,
-      data: userInfo
+      data: { userId: userInfo.id, favourites }
     })
       .then((response) => {
         console.log("rating saved successfully")

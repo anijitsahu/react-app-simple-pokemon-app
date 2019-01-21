@@ -5,7 +5,7 @@ const ObjectId = mongodb.ObjectID
 
 const URI_TO_CONNECT_MONGODB = "mongodb+srv://root:root123@anijitsmongo-mwm6l.mongodb.net/allapps";
 const DB_NAME = "allapps"
-const COLLECTION_POKEMON_USERS = "pokemonUsers"
+const COLLECTION_POKEMON_USERS = "pokemonusers"
 
 // this function will connect db and based on API send response
 let connectDbAndRunQueries = async (apiName, req, res) => {
@@ -46,40 +46,46 @@ let makeGetFavourites = async (db, req, res, client, output) => {
   console.log('params..', req.params)
   let { id: userId, name, email } = req.body
 
-  // try {
+  try {
 
-  // db call 
-  //     let data = await db.collection(COLLECTION_POKEMON_USERS)
-  //       .findAndModify({
-  //         query: { userId },
-  //         update: {
-  //           $setOnInsert: { userId, name, email}
-  //         },
-  //         new: true, // return new doc if one is upserted
-  //         upsert: true // insert the document if it does not exist
-  //       })
-  // 
-  //     output = (data.length > 0) ? [...data] : []
-  output = []
-  sendOutputAndCloseConnection(client, output, res)
+    // db call 
+    let docs = await db.collection(COLLECTION_POKEMON_USERS)
+      .find({ userId }, { projection: { _id: 0, favourites: 1 } })
+      .toArray()
 
-  // } catch (error) {
-  //   console.log('unable to get all the users', error)
-  //   sendOutputAndCloseConnection(client, output, res)
-  // }
+    console.log("docs are now", docs)
+
+    // the user is not present in the db, insert user's info
+    if (docs.length == 0) {
+      let data = await db.collection(COLLECTION_POKEMON_USERS)
+        .insertOne({ userId, name, email, favourites: [] })
+
+      console.log("Number of inserted docs", data.result.n)
+      output = []
+    } else {
+      output = docs[0].favourites
+    }
+
+    sendOutputAndCloseConnection(client, output, res)
+
+  } catch (error) {
+    console.log('unable to get all the users', error)
+    sendOutputAndCloseConnection(client, output, res)
+  }
 }
 
 let makeSaveFavourites = async (db, req, res, client, output) => {
   console.log('Function reached...', req.body)
+  let { userId, favourites } = req.body
+
   try {
 
     // db call 
-    //     let data = await db
-    //       .collection(COLLECTION_RESTAURANTS)
-    //       .find(query)
-    //       .toArray()
-    // 
-    //     output = (data.length > 0) ? [...data] : []
+    let data = await db
+      .collection(COLLECTION_POKEMON_USERS)
+      .updateOne({ userId }, { $set: { favourites } })
+
+    console.log("Number of modified docs", data.result.nModified)
     sendOutputAndCloseConnection(client, output, res)
 
   } catch (error) {
