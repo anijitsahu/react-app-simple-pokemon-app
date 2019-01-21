@@ -39,7 +39,9 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
  </ul>
   
  
- - All the user details, rooms and conversations are stored in the [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). This is a *free/ shared* account on [Atlas](https://www.mongodb.com/cloud/atlas). **So Please use it wisely**
+ - All the favourite pokemons of a user are stored in the [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). This is a *free/ shared* account on [Atlas](https://www.mongodb.com/cloud/atlas). **So Please use it wisely**
+ 
+ - For Promise call [`async / await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) is added
  
  <br>
  <ul>
