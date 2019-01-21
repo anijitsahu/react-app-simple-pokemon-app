@@ -6,6 +6,8 @@ combined to get a single build for production purpose using [Webpack 4](https://
 
 ES6 `module` creation along with `import /export` is used. [Babel](https://babeljs.io/docs/en/babel-preset-react) is used to *transpile* all [JSX](https://reactjs.org/docs/jsx-in-depth.html) code to vanilla JavaScript code. To install all the dependecies `npm` is used.
 
+Back end is implemented using [Node JS](https://nodejs.org/docs/latest-v8.x/api/), [Express JS](https://expressjs.com/en/api.html) and [MongoDB](https://docs.mongodb.com/). [Atlas](https://www.mongodb.com/cloud/atlas), the *Cloud* version of [MongoDB](https://docs.mongodb.com/) is used.
+
 For UI creation [HTML5](https://www.w3schools.com/html/html5_intro.asp) and [CSS3](https://www.w3schools.com/css/) are used. [Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout), the new feature of [CSS3](https://www.w3schools.com/css/) is used for layout creation purpose. Some of the [Fontawesome](https://fontawesome.com/) icons are added for aesthetic purpose.
 
 This is a *responsive web application* for viewing in both Mobile and Desktop.
@@ -15,6 +17,8 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
 - This is just a Simple Pokemon Application
 - It is a Full Stack Application 
 - Listing of favourites pokemons are added
+
+
 - Next Pokemons can be seen by clicking `>` button
   - Next button will not be shown when the last image is reached
 - Previous Pokemons can be seen clicking `<` button
@@ -23,6 +27,9 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
   - Searching can be done from two places namely *All* and *Favourites* panel
   - When no matching pokemon found an message would be shown
   
+ 
+ - All the user details, rooms and conversations are stored in the [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). This is a *free/ shared* account on [Atlas](https://www.mongodb.com/cloud/atlas). **So Please use it wisely**
+ 
  <br>
  <ul>
   <li> This follows responsive web design paradigm </li>
