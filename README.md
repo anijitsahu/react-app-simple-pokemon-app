@@ -47,7 +47,7 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
  <ul>
   <li> This follows responsive web design paradigm </li>
   <li> Mobile view is supported </li>
-  <li> All the favourites are stored in [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). So All changes are <i>persistant</i> </li>
+  <li> All the favourites are stored in <a href="https://www.mongodb.com/cloud/atlas">MongoDB Atlas</a>. So All changes are <i>persistant</i> </li>
   <li> Pokemons are served from the <i>external</i> URL</li>
  </ul> 
 
