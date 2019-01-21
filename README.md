@@ -25,9 +25,9 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
 
 <ul>
   <li> Next Pokemons can be seen by clicking `>` button </li>
-  <ul><li> Next button will not be shown when the last image is reached </li></ul>
+  <ul><li> Next button will not be shown when the last list of pokemons is reached </li></ul>
   <li> Previous Pokemons can be seen clicking `<` button </li>
-  <ul><li>While loading the first pokemon previous button will not be there for obvious reason</li></ul> 
+  <ul><li>While loading the first list of pokemon previous button will not be there for obvious reason</li></ul> 
 </ul>
 
 <ul>
