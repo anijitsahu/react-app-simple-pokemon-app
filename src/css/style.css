@@ -318,6 +318,7 @@ a {
 .loading-div {
   align-self: center;
   justify-self: center;
+  grid-column: 1/4;
 }
 
 .loading-icon {
