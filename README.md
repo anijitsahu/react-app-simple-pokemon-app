@@ -14,7 +14,7 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
 
 
 ## Features
-- This is just a Simple Pokemon Application
+- This is a Simple Pokemon Application
 - It is a Full Stack Application 
 - Listing of favourites pokemons are added
 
