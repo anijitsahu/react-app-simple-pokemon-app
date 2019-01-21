@@ -20,34 +20,33 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
 
 <ul>
   <li> <a href="https://facebook.com">Facebook login</a> is added </li>
-  <li> User info from <a href="https://facebook.com">Facebook</a> is stored in database </li>
+  <li> User info obtained from <a href="https://facebook.com">Facebook Login</a> is stored in database </li>
 </ul>  
 
 <ul>
-  <li> Next Pokemons can be seen by clicking `>` button </li>
+  <li> <i>Next</i> list of pokemons can be seen by clicking <code>></code button </li>
   <ul><li> Next button will not be shown when the last list of pokemons is reached </li></ul>
-  <li> Previous Pokemons can be seen clicking `<` button </li>
+    <li> <i>Previous</i> list of pokemons can be seen clicking <code>`<`</code> button </li>
   <ul><li>While loading the first list of pokemon previous button will not be there for obvious reason</li></ul> 
 </ul>
 
 <ul>
-  <li> Pokemons can be searched by `name` or `type`</li>
+  <li> Pokemons can be searched by <code>name</code> or <code>type</code></li>
   <ul>
-    <li> Searching can be done from two places namely *All* and *Favourites* panel</li>
-    <li>When no matching pokemon found an message would be shown</li>
+    <li> Searching can be done from two places namely <i>All</i> and <i>Favourites</i> panel</li>
+    <li>When no matching pokemon found an error message would be shown</li>
   </ul>
  </ul>
   
  
  - All the favourite pokemons of a user are stored in the [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). This is a *free/ shared* account on [Atlas](https://www.mongodb.com/cloud/atlas). **So Please use it wisely**
  
- - For Promise call [`async / await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) is added
+ - For Promise call [`async / await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) is used
  
  <br>
  <ul>
   <li> This follows responsive web design paradigm </li>
-  <li> Mobile view is supported </li>
-  <li> All the favourites are stored in <a href="https://www.mongodb.com/cloud/atlas">MongoDB Atlas</a>. So All changes are <i>persistant</i> </li>
+  <li> Mobile view is supported </li>  
   <li> Pokemons are served from the <i>external</i> URL</li>
  </ul> 
 
