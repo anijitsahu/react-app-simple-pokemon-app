@@ -26,7 +26,7 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
 <ul>
   <li> <i>Next</i> list of pokemons can be seen by clicking <code>></code button </li>
   <ul><li> Next button will not be shown when the last list of pokemons is reached </li></ul>
-    <li> <i>Previous</i> list of pokemons can be seen clicking <code>`<`</code> button </li>
+    <li> <i>Previous</i> list of pokemons can be seen clicking <code><</code> button </li>
   <ul><li>While loading the first list of pokemon previous button will not be there for obvious reason</li></ul> 
 </ul>
 
