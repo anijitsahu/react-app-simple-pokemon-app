@@ -29,15 +29,15 @@ class Content extends Component {
       favourites: [],
       favId: '',
       links: [{
-          id: "all",
-          path: "/",
-          desc: "All"
-        },
-        {
-          id: "favourites",
-          path: "/favourites",
-          desc: "Favourites"
-        }
+        id: "all",
+        path: "/",
+        desc: "All"
+      },
+      {
+        id: "favourites",
+        path: "/favourites",
+        desc: "Favourites"
+      }
       ],
       activeLink: "all"
     }
@@ -82,11 +82,11 @@ class Content extends Component {
     })
 
     axios({
-        method: allConstants.METHODS.POST,
-        url: allConstants.GET_USER_FAV_POKEMON,
-        header: allConstants.HEADER,
-        data: userInfo
-      })
+      method: allConstants.METHODS.POST,
+      url: allConstants.GET_USER_FAV_POKEMON,
+      header: allConstants.HEADER,
+      data: userInfo
+    })
       .then((response) => {
         console.log('Response received', response)
         this.setState({ favourites: [1, 4, 7], favId: uuidv4() })
@@ -106,11 +106,11 @@ class Content extends Component {
     let { allConstants } = this
     let { userInfo } = this.state
     axios({
-        method: allConstants.METHODS.POST,
-        url: allConstants.SAVE_USER_FAVE_POKEMON,
-        header: allConstants.HEADER,
-        data: userInfo
-      })
+      method: allConstants.METHODS.POST,
+      url: allConstants.SAVE_USER_FAVE_POKEMON,
+      header: allConstants.HEADER,
+      data: userInfo
+    })
       .then((response) => {
         console.log("rating saved successfully")
       })
@@ -134,52 +134,52 @@ class Content extends Component {
 
     return (
       <div className="content" style={style}>
-          {(showContent == false) ? <Login getUserInfo={this.getUserInfo} />
+        {(showContent == false) ? <Login getUserInfo={this.getUserInfo} />
           :
-            <React.Fragment>
-              <SearchBar
-                handleChange={this.handleChange}
-                handleKeyPress={this.handleKeyPress}
-                searchText={searchText} />
+          <React.Fragment>
+            <SearchBar
+              handleChange={this.handleChange}
+              handleKeyPress={this.handleKeyPress}
+              searchText={searchText} />
 
-                <div className="links-div">
-                  {
-                    links.map((ele)=>{
+            <div className="links-div">
+              {
+                links.map((ele) => {
 
-                      let linkStyle = (activeLink == ele.id) ? "link-anc active-link": "link-anc"
-                      return(
-                        <Link key={ele.id} id={ele.id} to={ele.path} className={linkStyle} onClick={this.makeActiveLink}>{ele.desc}</Link>
-                      )
-                    })
-                  }
-                </div>
+                  let linkStyle = (activeLink == ele.id) ? "link-anc active-link" : "link-anc"
+                  return (
+                    <Link key={ele.id} id={ele.id} to={ele.path} className={linkStyle} onClick={this.makeActiveLink}>{ele.desc}</Link>
+                  )
+                })
+              }
+            </div>
 
-                <Switch>
-                  <Route exact path="/" render={(props)=> (
-                     <PokemonPanel 
-                        searchId={searchId} 
-                        favId={favId}
-                        searchText={searchText} 
-                        favourites={favourites} 
-                        pokemons={pokemons}
-                        updatePokemonsList={this.updatePokemonsList}
-                        changeRating={this.changeRating}/>
-                    )}/>
+            <Switch>
+              <Route exact path="/" render={(props) => (
+                <PokemonPanel
+                  searchId={searchId}
+                  favId={favId}
+                  searchText={searchText}
+                  favourites={favourites}
+                  pokemons={pokemons}
+                  updatePokemonsList={this.updatePokemonsList}
+                  changeRating={this.changeRating} />
+              )} />
 
-                  <Route path="/favourites" render={(props)=> (
-                     <FavouritePokemons 
-                        searchId={searchId} 
-                        favId={favId}
-                        searchText={searchText} 
-                        favourites={favourites} 
-                        pokemons={pokemons}
-                        pokemonsListId={pokemonsListId}
-                        changeRating={this.changeRating}/>
-                    )}/>
-                </Switch>    
-              </React.Fragment>
-          }
-        </div>
+              <Route path="/favourites" render={(props) => (
+                <FavouritePokemons
+                  searchId={searchId}
+                  favId={favId}
+                  searchText={searchText}
+                  favourites={favourites}
+                  pokemons={pokemons}
+                  pokemonsListId={pokemonsListId}
+                  changeRating={this.changeRating} />
+              )} />
+            </Switch>
+          </React.Fragment>
+        }
+      </div>
     );
   }
 };

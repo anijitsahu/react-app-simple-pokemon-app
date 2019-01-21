@@ -28,7 +28,7 @@ const Login = ({ getUserInfo }) => {
         autoLoad={false}
         fields="name,email,picture"
         callback={responseFacebook}
-        icon="fa fa-facebook"/>
+        icon="fa fa-facebook" />
     </div>
   );
 };

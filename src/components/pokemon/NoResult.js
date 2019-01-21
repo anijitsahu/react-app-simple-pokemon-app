@@ -1,9 +1,9 @@
 import React from 'react';
 
 const NoResult = ({ msg }) => {
-    return (
-        <div className="no-result-div">{msg}</div>
-    );
+  return (
+    <div className="no-result-div">{msg}</div>
+  );
 };
 
 

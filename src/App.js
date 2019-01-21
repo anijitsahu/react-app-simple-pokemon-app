@@ -21,23 +21,23 @@ class App extends Component {
   }
 
   sendUserInfo(userInfo) {
-  	console.log("userInfo received in APP", userInfo)
+    console.log("userInfo received in APP", userInfo)
     this.setState({ userInfo })
   }
 
 
   render() {
-  	let {userInfo} = this.state
+    let { userInfo } = this.state
     return (
       <BrowserRouter>
-	    <ErrorBoundary>
-		    <div className="container">
-		    	{ /* including the Title as well as Content components */ }
-			  		<Title userInfo={userInfo}/>
-			  		<Content sendUserInfo={this.sendUserInfo}/>	
-		  	</div>
-			</ErrorBoundary>
-		</BrowserRouter>
+        <ErrorBoundary>
+          <div className="container">
+            { /* including the Title as well as Content components */}
+            <Title userInfo={userInfo} />
+            <Content sendUserInfo={this.sendUserInfo} />
+          </div>
+        </ErrorBoundary>
+      </BrowserRouter>
     );
   }
 };

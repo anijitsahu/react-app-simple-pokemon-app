@@ -23,8 +23,8 @@ class ErrorBoundary extends Component {
     if (hasError == true) {
       return (
         <div className="error-div">
-    			<div className="error-title">{error.toString()}</div>
-    		</div>
+          <div className="error-title">{error.toString()}</div>
+        </div>
       );
     }
     return this.props.children;

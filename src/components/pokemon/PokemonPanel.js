@@ -89,10 +89,10 @@ class PokemonPanel extends Component {
     let { allConstants } = this
     this.setState({ showLoading: true })
     axios({
-        method: allConstants.METHODS.GET,
-        url: allConstants.POKEMON_INDIV_URL.replace('{id}', searchText),
-        headers: allConstants.HEADER
-      })
+      method: allConstants.METHODS.GET,
+      url: allConstants.POKEMON_INDIV_URL.replace('{id}', searchText),
+      headers: allConstants.HEADER
+    })
       .then((response) => {
         console.log('response for Search', response)
         this.setState({ searchResults: true, showLoading: false, showNoResult: false })
@@ -250,11 +250,11 @@ class PokemonPanel extends Component {
         {
           (showLoading == true) ? <Loading />
             :
-            (showNoResult == true) ? <NoResult msg={noResultText}/> 
-            :
+            (showNoResult == true) ? <NoResult msg={noResultText} />
+              :
               pokemons.map((pokemon) => {
                 return (
-                  <Pokemon key={pokemon.id} {...pokemon} favourites={favourites} changeRating={this.changeRating}/>
+                  <Pokemon key={pokemon.id} {...pokemon} favourites={favourites} changeRating={this.changeRating} />
                 )
               })
         }

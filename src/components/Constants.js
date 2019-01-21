@@ -10,7 +10,7 @@ class Constants {
 		// local urls
 		this.BASE_URL_LOCAL = "http://localhost:3000/services"
 		this.GET_USER_FAV_POKEMON = `${this.BASE_URL_LOCAL}/getfavourites`
-		this.SAVE_USER_FAVE_POKEMON =`${this.BASE_URL_LOCAL}/savefavourites/`
+		this.SAVE_USER_FAVE_POKEMON = `${this.BASE_URL_LOCAL}/savefavourites/`
 
 		// Content-type
 		this.HEADER = {

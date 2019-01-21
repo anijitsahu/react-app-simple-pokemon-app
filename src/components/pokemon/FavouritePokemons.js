@@ -148,18 +148,18 @@ class FavouritePokemons extends Component {
 
     return (
       <div className="pokemon-panel">
-      {(startIndex != 0 && pokemons.length > 0) ? <Navigation updatePokemons={this.updatePokemons} position={"left"} /> : null}
+        {(startIndex != 0 && pokemons.length > 0) ? <Navigation updatePokemons={this.updatePokemons} position={"left"} /> : null}
 
-      {
-        (showNoResult == true) ? <NoResult msg={noResultText}/> 
-        :
-          pokemons.map((pokemon) => {
-            return (
-              <Pokemon key={pokemon.id} {...pokemon} favourites={favourites} changeRating={this.changeRating}/>
-            )
-          })        
-      }
-      {(showRightButton == true) ? <Navigation updatePokemons={this.updatePokemons} position={"right"} /> : null}
+        {
+          (showNoResult == true) ? <NoResult msg={noResultText} />
+            :
+            pokemons.map((pokemon) => {
+              return (
+                <Pokemon key={pokemon.id} {...pokemon} favourites={favourites} changeRating={this.changeRating} />
+              )
+            })
+        }
+        {(showRightButton == true) ? <Navigation updatePokemons={this.updatePokemons} position={"right"} /> : null}
       </div>
     )
   }
