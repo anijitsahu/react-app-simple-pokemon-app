@@ -246,6 +246,10 @@ input[type="text"]:hover {
   text-transform: uppercase;
 }
 
+.link-anc {
+  color: #ab14ab;
+}
+
 .active-link {
   font-weight: bold;
 }
