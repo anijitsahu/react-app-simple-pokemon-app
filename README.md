@@ -18,14 +18,25 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
 - It is a Full Stack Application 
 - Listing of favourites pokemons are added
 
+<ul>
+  <li> <a href="https://facebook.com">Facebook login</a> is added </li>
+  <li> User info from <a href="https://facebook.com">Facebook</a> is stored in database </li>
+</ul>  
 
-- Next Pokemons can be seen by clicking `>` button
-  - Next button will not be shown when the last image is reached
-- Previous Pokemons can be seen clicking `<` button
-  - While loading the first pokemon previous button will not be there for obvious reason 
-- Pokemons can be searched by `name` or `type`
-  - Searching can be done from two places namely *All* and *Favourites* panel
-  - When no matching pokemon found an message would be shown
+<ul>
+  <li> Next Pokemons can be seen by clicking `>` button </li>
+  <ul><li> Next button will not be shown when the last image is reached </li></ul>
+  <li> Previous Pokemons can be seen clicking `<` button </li>
+  <ul><li>While loading the first pokemon previous button will not be there for obvious reason</li></ul> 
+</ul>
+
+<ul>
+  <li> Pokemons can be searched by `name` or `type`</li>
+  <ul>
+    <li> Searching can be done from two places namely *All* and *Favourites* panel</li>
+    <li>When no matching pokemon found an message would be shown</li>
+  </ul>
+ </ul>
   
  
  - All the user details, rooms and conversations are stored in the [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). This is a *free/ shared* account on [Atlas](https://www.mongodb.com/cloud/atlas). **So Please use it wisely**
@@ -34,7 +45,7 @@ This is a *responsive web application* for viewing in both Mobile and Desktop.
  <ul>
   <li> This follows responsive web design paradigm </li>
   <li> Mobile view is supported </li>
-  <li> All the favourites are stored in [MongoDB Atlas]. So All changes are <i>persistant</i> </li>
+  <li> All the favourites are stored in [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). So All changes are <i>persistant</i> </li>
   <li> Pokemons are served from the <i>external</i> URL</li>
  </ul> 
 
